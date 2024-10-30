@@ -26,10 +26,4 @@ export class CartItemService {
   removeProduct(items: CartItem[], id: number): CartItem[] {
     return items.filter(item => item.product.id != id);
   }
-
-  calculateTotal(items: CartItem[]): number {
-    return items.reduce((accumulator, item) => {
-      return accumulator + (item.quantity * item.product.price);
-    }, 0);
-  }
 }
