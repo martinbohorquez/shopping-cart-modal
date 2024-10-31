@@ -1,8 +1,17 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title"> {{product.name}} </h5>
-        <p class="card-text"> {{product.description}} </p>
-        <p class="card-text"> {{product.price}} </p>
-        <button class="btn btn-primary" (click)="onAddCart(product)">Agregar al carro</button>
+<div class="card h-100 d-flex flex-column">
+    <img src={{product.imageUrl}} class="card-img-top flex-grow-1 bg-gradient" alt=" {{product.name}}">
+    <div class="card-header" style="flex-direction: column; display: flex; justify-content: center; height: 100px;">
+        <h5 class="card-title fw-bold"> {{product.name}} </h5>
+    </div>
+    <div class="card-body" style="flex-direction: column; display: flex; justify-content: flex-start;">
+        <p class="card-text">{{product.description}} </p>
+    </div>
+    <div class="card-footer" style="flex-direction: column;">
+        <p class=" card-text fw-bold float-start">${{product.price.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+            })}} </p>
+        <button class="btn btn-primary btn float-end" (click)="onAddCart(product)">Agregar al
+            carro</button>
     </div>
 </div>
