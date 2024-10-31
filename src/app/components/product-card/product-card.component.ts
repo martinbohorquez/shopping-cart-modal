@@ -2,20 +2,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Component({
-  selector: 'div[product-card]',
-  standalone: true,
-  imports: [],
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.css'
+	selector: 'div[product-card]',
+	standalone: true,
+	imports: [],
+	templateUrl: './product-card.component.html',
+	styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
+	@Input() product!: Product;
 
-  @Input() product!: Product;
+	@Output() productEventEmitter: EventEmitter<Product> = new EventEmitter();
 
-  @Output() productEventEmitter: EventEmitter<Product> = new EventEmitter();
-    
-  onAddCart(product: Product) {
-    this.productEventEmitter.emit(product);
-  }
-
+	onAddCart(product: Product) {
+		this.productEventEmitter.emit(product);
+	}
 }
